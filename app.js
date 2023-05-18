@@ -3,6 +3,7 @@ import { stdin as input, stdout as output } from 'node:process'
 import runFrequencyCounterBasic from './algos/frequencyCounters/frequencyCounterBasic.js'
 import runAnagramChecker from './algos/frequencyCounters/anagramChecker.js'
 import runSumZero from './algos/frequencyCounters/multiplePointers/sumZero.js'
+import runCountUniqueValues from './algos/frequencyCounters/multiplePointers/countUniqueValues.js'
 
 const rl = readline.createInterface({ input, output })
 
@@ -21,6 +22,11 @@ const algoOptions = [
     id: "3",
     description: "Sum Zero: first two numbers in array that add up to 0.",
     callFunction: runSumZero
+  },
+  {
+    id: "4",
+    description: "Count unique values: count the number of unique values in an array.",
+    callFunction: runCountUniqueValues
   },
 ]
 
