@@ -1,19 +1,20 @@
 import * as readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
 import runFrequencyCounterBasic from './algos/frequencyCounters/frequencyCounterBasic.js'
+import runAnagramChecker from './algos/anagramChecker.js'
 
 const rl = readline.createInterface({ input, output })
 
 const algoOptions = [
   {
     id: "1",
-    description: "Frequency Counter Basic: accepts two arrays and returns true if every integer value in the first array has its corresponding value squared in the second array, and the frequency of values in each array must be the same.",
+    description: "Frequency Counter Basic: is every integer in one array squared in another array, with matching integer frequency count?",
     callFunction: runFrequencyCounterBasic
   },
   {
     id: "2",
-    description: "Frequency Counter Basic",
-    callFunction: runFrequencyCounterBasic
+    description: "Anagram Checker: are two strings anagrams of each other?",
+    callFunction: runAnagramChecker
   },
 ]
 

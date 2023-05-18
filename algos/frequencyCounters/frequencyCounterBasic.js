@@ -1,5 +1,4 @@
-// Write a function which accepts two arrays and returns true if every integer value in the first 
-// array has its corresponding value squared in the second array, and the frequency of values in each array must be the same.
+// Is every integer in one array squared in another array, with matching integer frequency count?
 
 // // Inefficient O(n**2)
 // const frequencyCounterBasic = (array1, array2) => {
