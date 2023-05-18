@@ -41,7 +41,7 @@ const frequencyCounterBasic = (array1, array2) => {
 
   for (let key in frequencyCounter1) {
     if (!(key ** 2 in frequencyCounter2)) {
-      console.log(`${key} not in second array.`)
+      console.log(`${key} squared is not in second array.`)
       
       return false
     }
@@ -62,6 +62,8 @@ const runFrequencyCounterBasic = async rl => {
   const array2Answer = await rl.question("Enter integer values for array 2 of 2 seperated by commas: ")
 
   frequencyCounterBasic(array1Answer.split(","), array2Answer.split(","))
+
+  rl.close()
 }
 
 export default runFrequencyCounterBasic

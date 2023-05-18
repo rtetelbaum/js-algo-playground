@@ -24,6 +24,9 @@ console.log("\n")
 
 const algoOptionAnswer = await rl.question("Which algo would you like to play with? ")
 
-algoOptions[algoOptionAnswer - 1]?.callFunction(rl) || console.log("No such option.")
-
-rl.close()
+if (algoOptions[algoOptionAnswer - 1]) {
+  algoOptions[algoOptionAnswer - 1].callFunction(rl)
+} else {
+  console.log("No such option.")
+  rl.close()
+}
