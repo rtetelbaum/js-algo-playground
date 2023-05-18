@@ -1,3 +1,5 @@
+const frequencyCounterBasic = require('./algos/frequencyCounters/frequencyCounterBasic')
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -9,18 +11,22 @@ console.log(
   "1: frequencyCounterBasic"
 )
 
-var algoChoice
+readline.question("Which algo would you like to play with? ", readlineAnswer => {
+  const algoChoice = readlineAnswer
 
-readline.question(`Which algo would you like to play with? `, readlineAnswer => {
-  algoChoice = readlineAnswer
+  switch (algoChoice) {
+    case "1":
+      console.log(algoChoice)
+      break
+    default:
+      console.log("No such option.")
+  }
 
   readline.close()
 })
 
-switch (algoChoice) {
-  case 1:
-    console.log("You chose 1")
-    break
-  default:
-    console.log("No such option.")
-}
+readline.question("Enter values for array 1 of 2 seperated by commas: ", readlineAnswer => {
+  const array1 = readlineAnswer.split(',')
+  console.log(array1)
+  readline.close()
+})
