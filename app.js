@@ -2,6 +2,7 @@ import * as readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
 import runFrequencyCounterBasic from './algos/frequencyCounters/frequencyCounterBasic.js'
 import runAnagramChecker from './algos/frequencyCounters/anagramChecker.js'
+import runSumZero from './algos/frequencyCounters/multiplePointers/sumZero.js'
 
 const rl = readline.createInterface({ input, output })
 
@@ -15,6 +16,11 @@ const algoOptions = [
     id: "2",
     description: "Anagram Checker: are two strings anagrams of each other?",
     callFunction: runAnagramChecker
+  },
+  {
+    id: "3",
+    description: "Sum Zero: first two numbers in array that add up to 0.",
+    callFunction: runSumZero
   },
 ]
 
