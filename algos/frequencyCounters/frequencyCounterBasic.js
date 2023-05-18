@@ -1,5 +1,5 @@
-// Write a function which accepts two array and returns true if every value in the first 
-// array has its corresponding value squared in the second array, and the frequency of values must be the same.
+// Write a function which accepts two arrays and returns true if every integer value in the first 
+// array has its corresponding value squared in the second array, and the frequency of values in each array must be the same.
 
 // // Inefficient O(n**2)
 // const frequencyCounterBasic = (array1, array2) => {
@@ -22,7 +22,11 @@
 
 // Effecient O(n)
 const frequencyCounterBasic = (array1, array2) => {
-  if (array1.length !== array2.length) return false
+  if (array1.length !== array2.length) {
+    console.log("Arrays are of different length.")
+    
+    return false
+  }
 
   let frequencyCounter1 = {}
   let frequencyCounter2 = {}
@@ -36,9 +40,28 @@ const frequencyCounterBasic = (array1, array2) => {
   }
 
   for (let key in frequencyCounter1) {
-    if (!(key ** 2 in frequencyCounter2)) return false
-    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) return false
+    if (!(key ** 2 in frequencyCounter2)) {
+      console.log(`${key} not in second array.`)
+      
+      return false
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      console.log(`Frequencies of ${key} do not match.`)  
+      
+      return false
+    }
   }
 
+  console.log("Every value in the first array has its corresponding value squared in the second array, and the frequency of values is the same.")
   return true
 }
+
+const runFrequencyCounterBasic = async rl => {
+  const array1Answer = await rl.question("Enter integer values for array 1 of 2 seperated by commas: ")
+  
+  const array2Answer = await rl.question("Enter integer values for array 2 of 2 seperated by commas: ")
+
+  frequencyCounterBasic(array1Answer.split(","), array2Answer.split(","))
+}
+
+export default runFrequencyCounterBasic

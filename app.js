@@ -1,32 +1,29 @@
-const frequencyCounterBasic = require('./algos/frequencyCounters/frequencyCounterBasic')
+import * as readline from 'node:readline/promises'
+import { stdin as input, stdout as output } from 'node:process'
+import runFrequencyCounterBasic from './algos/frequencyCounters/frequencyCounterBasic.js'
 
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
+const rl = readline.createInterface({ input, output })
 
-console.log(
-  "Algo Options: ",
-  "\n",
-  "1: frequencyCounterBasic"
-)
+const algoOptions = [
+  {
+    id: "1",
+    description: "Frequency Counter Basic: accepts two arrays and returns true if every integer value in the first array has its corresponding value squared in the second array, and the frequency of values in each array must be the same.",
+    callFunction: runFrequencyCounterBasic
+  },
+  {
+    id: "2",
+    description: "Frequency Counter Basic",
+    callFunction: runFrequencyCounterBasic
+  },
+]
 
-readline.question("Which algo would you like to play with? ", readlineAnswer => {
-  const algoChoice = readlineAnswer
+console.log("\n")
+console.log("Algo Options: ")
+algoOptions.map(o => console.log(`${o.id}: ${o.description}`))
+console.log("\n")
 
-  switch (algoChoice) {
-    case "1":
-      console.log(algoChoice)
-      break
-    default:
-      console.log("No such option.")
-  }
+const algoOptionAnswer = await rl.question("Which algo would you like to play with? ")
 
-  readline.close()
-})
+algoOptions[algoOptionAnswer - 1]?.callFunction(rl) || console.log("No such option.")
 
-readline.question("Enter values for array 1 of 2 seperated by commas: ", readlineAnswer => {
-  const array1 = readlineAnswer.split(',')
-  console.log(array1)
-  readline.close()
-})
+rl.close()
