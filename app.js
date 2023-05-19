@@ -2,8 +2,8 @@ import * as readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
 import runFrequencyCounterBasic from './algos/frequencyCounters/frequencyCounterBasic.js'
 import runAnagramChecker from './algos/frequencyCounters/anagramChecker.js'
-import runSumZero from './algos/frequencyCounters/multiplePointers/sumZero.js'
-import runCountUniqueValues from './algos/frequencyCounters/multiplePointers/countUniqueValues.js'
+import runSumZero from './algos/multiplePointers/sumZero.js'
+import runCountUniqueValues from './algos/multiplePointers/countUniqueValues.js'
 
 const rl = readline.createInterface({ input, output })
 
